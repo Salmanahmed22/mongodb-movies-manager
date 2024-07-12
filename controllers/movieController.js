@@ -36,9 +36,23 @@ const deleteMovie = async (req, res) => {
   const deleteMovie = movieService.deleteMovie(movieId)
   res.send(" deleted successfully")
 }
+
+const updateMovie = async (req, res) => {
+  try{
+    const movieId = req.params.id
+    const movie = req.body
+    const updatedMovie = await movieService.updateMovie(movieId, movie) 
+    res.status(200).send(" updated successfully")
+  }catch(error){
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+}
+
 module.exports = {
   getAllMovies,
   addMovie,
   getMovie,
-  deleteMovie
+  deleteMovie,
+  updateMovie
 };

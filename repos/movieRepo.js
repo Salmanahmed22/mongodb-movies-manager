@@ -38,9 +38,19 @@ const deleteMovie = async (movieId) => {
   await  client.close();
   return deletedmovie
 }
+
+const updateMovie = async (movieId, movie) => {
+  await client.connect();
+  const db = client.db('movies-db')
+  const collection = db.collection('movies')
+  const updatedmovie = await collection.updateOne({_id: new ObjectId(movieId)}, {$set: {...movie}})
+  await  client.close();
+  return updatedmovie
+}
 module.exports = {
   getAllMovies,
   addMovie,
   getMovie,
-  deleteMovie
+  deleteMovie,
+  updateMovie
 };

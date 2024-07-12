@@ -17,9 +17,14 @@ const deleteMovie = async (movieId) => {
   return await movieRepo.deleteMovie(movieId)
 }
 
+
+const updateMovie = async (movieId, movie) => {
+  return await movieRepo.updateMovie(movieId, movie)
+}
 module.exports = {
   getAllMovies,
   addMovie,
   getMovie,
-  deleteMovie
+  deleteMovie,
+  updateMovie
 };
