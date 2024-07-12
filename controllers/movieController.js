@@ -30,8 +30,15 @@ const getMovie = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 }
+
+const deleteMovie = async (req, res) => {
+  const movieId = req.params.id
+  const deleteMovie = movieService.deleteMovie(movieId)
+  res.send(" deleted successfully")
+}
 module.exports = {
   getAllMovies,
   addMovie,
-  getMovie
+  getMovie,
+  deleteMovie
 };

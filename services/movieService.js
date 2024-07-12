@@ -13,8 +13,13 @@ const getMovie = async (movieId) => {
   return await movieRepo.getMovie(movieId)
 }
 
+const deleteMovie = async (movieId) => {
+  return await movieRepo.deleteMovie(movieId)
+}
+
 module.exports = {
   getAllMovies,
   addMovie,
-  getMovie
+  getMovie,
+  deleteMovie
 };
