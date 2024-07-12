@@ -23,7 +23,6 @@ const getMovie = async (movieId) => {
   await client.connect();
   const db = client.db('movies-db')
   const collection = db.collection('movies')
-  console.log("heyyyyyyyyyyyyyyyyyy");
   const movie = await collection.findOne({_id: new ObjectId(movieId)})
   await  client.close();
   return movie

@@ -9,7 +9,6 @@ const addMovie = async (movie) => {
 };
 
 const getMovie = async (movieId) => {
-  console.log("okkk");
   return await movieRepo.getMovie(movieId)
 }
 
